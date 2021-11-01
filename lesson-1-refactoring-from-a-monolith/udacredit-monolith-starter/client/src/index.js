@@ -13,7 +13,7 @@ class App extends React.Component {
     }
 
     loadCustomers = () => {
-        fetch("http://localhost:5000/api/customers")
+        fetch("http://localhost:5001/api/customers")
             .then(res => res.json())
             .then(
                 (result) => {
@@ -52,36 +52,37 @@ class App extends React.Component {
     }
 
     render() {
-        const {error, customers, employees} = this.state;
+        const { error, customers, employees } = this.state;
         if (error) {
-            return <div>Error: {error.message}</div>;
+            return <div > Error: { error.message } < /div>;
         } else {
-            return (
-                <div>
-                    <h1>UdaCredit Union</h1>
-                    <h2>Customers</h2>
-                    <ul>
-                        {customers.map(customer => (
-                            <li key={customer.name}>
-                                {customer.name} - {customer.balance}
-                            </li>
-                        ))}
-                    </ul>
-                    <h2>Employees</h2>
-                    <ul>
-                        {employees.map(employee => (
-                            <li key={employee.name}>
-                                {employee.name} - {employee.email}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+            return ( <
+                div >
+                <
+                h1 > UdaCredit Union < /h1> <
+                h2 > Customers < /h2> <
+                ul > {
+                    customers.map(customer => ( <
+                        li key = { customer.name } > { customer.name } - { customer.balance } <
+                        /li>
+                    ))
+                } <
+                /ul> <
+                h2 > Employees < /h2> <
+                ul > {
+                    employees.map(employee => ( <
+                        li key = { employee.name } > { employee.name } - { employee.email } <
+                        /li>
+                    ))
+                } <
+                /ul> <
+                /div>
             );
         }
     }
 }
 
-ReactDOM.render(
-    <App/>,
+ReactDOM.render( <
+    App / > ,
     document.getElementById('root')
 );
